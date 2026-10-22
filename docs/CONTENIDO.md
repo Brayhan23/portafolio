@@ -9,7 +9,7 @@
 - Teléfono: +57 321 776 9409 → SOLO en la versión PDF.
 - LinkedIn: https://www.linkedin.com/in/brayhan-alexander-escobar-rivera-510ab1389/
 - GitHub: https://github.com/Brayhan23
-- Foto: `public/perfil/brayhan.webp` (vertical 4:5). Ubicación: hero, a la derecha en escritorio, debajo del texto en móvil. Recorte 4:5, borde 1px color line, radio 4px, sin filtros.
+- Foto: `public/perfil/brayhan.jpg` (vertical 4:5). Ubicación: hero, a la derecha en escritorio, debajo del texto en móvil. Recorte 4:5, borde 1px color line, radio 4px, sin filtros.
 - Stack principal: React, JavaScript, Next.js, Node.js, PostgreSQL, SQLite.
 - También: TypeScript, Express, NestJS, Java/Spring Boot, Python/Flask, Tailwind CSS, Git/GitHub, Vercel, Render, pruebas automatizadas.
 
@@ -27,15 +27,17 @@
 ## Proyectos destacados (en este orden)
 
 ### 1. App Milagros — `app-milagros`
-- Tipo: Comercial (freelance) · Estado: En producción · Año: 2026 [PENDIENTE: confirmar año]
+- Tipo: Comercial (freelance) · Estado: En producción · Año: 2026
 - Contexto: comercio de productos capilares en San Roque, Antioquia.
 - Problema: el negocio necesitaba controlar ventas, inventario y créditos sin depender de internet y en equipos de pocos recursos.
 - Solución: sistema POS e inventario local-first, 100 % offline, empaquetado como ejecutable .exe para equipos de 4 GB de RAM.
 - Funciones: productos y stock; escáner de códigos de barras; ventas a crédito y control de deudores; facturación con impresora térmica de 80 mm; recibos por correo; reportes e historial; exportación a Excel y PDF; copias de seguridad automáticas.
 - Stack: Node.js, Express 5, SQLite (better-sqlite3), JavaScript, HTML5, CSS3, PDFKit, ExcelJS, bcrypt, @yao-pkg/pkg.
 - Rol: Desarrollador Full Stack principal — arquitectura, base de datos, frontend, backend, pruebas unitarias, optimización, empaquetado e instalación en el cliente. Otra persona colaboró en 4 historias de usuario.
-- Decisiones: [PENDIENTE: por qué SQLite y no PostgreSQL] · [PENDIENTE: qué se hizo para rendir en 4 GB de RAM]
-- Repo: https://github.com/Brayhan23/app-milagros (verificar que sea público antes de publicar)
+- Decisiones técnicas:
+  - SQLite en lugar de PostgreSQL: es una base de datos liviana que va incluida en el mismo paquete de la aplicación, así que no hay que instalar nada en el equipo del cliente.
+  - Rendimiento en 4 GB de RAM: el servidor del cliente tenía esa limitación, por lo que se redujo el trabajo innecesario tanto en el servidor como en el cliente. Por ejemplo, no se incluyeron imágenes de productos, para mantener el sistema liviano.
+- Repo: https://github.com/Brayhan23/app-milagros (repo público)
 - Demo: no hay demo pública → galería + video.
 
 ### 2. APEX-WEB — `apex-web`
@@ -44,17 +46,22 @@
 - Solución: sitio de divulgación de 12 secciones organizado en los pilares REFUERZA, COMPITE y AVANZA.
 - Stack: Next.js (App Router), React, TypeScript, Tailwind CSS v4, clsx, tailwind-merge, Vercel.
 - Rol: desarrollo completo e independiente — arquitectura de componentes, diseño visual, estructura de contenido, animaciones scroll-reveal accesibles (useInView / useReducedMotion), tipado y despliegue.
-- Decisiones: [PENDIENTE: por qué Next.js App Router y Tailwind v4]
+- Decisiones técnicas:
+  - Next.js App Router: Server Components para las vistas que no requieren interacción y Client Components reservados solo para las partes interactivas.
+  - Tailwind CSS v4: estilos utilitarios con configuración directa en CSS, que mantienen el diseño consistente y el CSS final liviano.
 - Demo: https://apex-web-gamma.vercel.app/
-- Repo: https://github.com/Brayhan23/apex-web (verificar que sea público)
+- Repo: https://github.com/Brayhan23/apex-web (repo público)
 - Aclaración: es el sitio de divulgación, no la plataforma educativa completa.
 
 ### 3. Adivina Quién Web — `adivina-quien`
-- Tipo: Académico (individual) · Estado: Desplegado · Año: [PENDIENTE]
+- Tipo: Académico (individual) · Estado: Desplegado · Año: 2025
+- Origen: comenzó como proyecto de una materia y luego se convirtió en un proyecto personal.
+- Problema: construir un juego multijugador en tiempo real donde varias partidas simultáneas se mantengan consistentes: el servidor valida las reglas y los turnos, y cada partida tiene su propio estado.
 - Solución: juego multijugador en tiempo real con emparejamiento público o privado (enlace/QR), salas simultáneas, turnos y reglas validados por el servidor y estado aislado por partida.
 - Stack: Python 3.10+, Flask, Flask-SocketIO, threading (locks por partida), JavaScript, HTML5, CSS3, qrcode.js, unittest, Render.
 - Rol: desarrollo completo — arquitectura orientada a eventos, WebSockets, sincronización de estado, concurrencia, pruebas automatizadas y despliegue.
-- Decisiones: [PENDIENTE: por qué locks por partida]
+- Decisiones técnicas:
+  - Locks por partida: evitan que varias operaciones modifiquen al mismo tiempo el estado de una misma partida de forma incompatible.
 - Demo: https://juego-adivina-quien-web.onrender.com/ (avisar en la UI que el plan gratuito de Render puede tardar ~1 min en despertar)
 - Repo: https://github.com/Brayhan23/juego-adivina-quien-web
 
@@ -63,13 +70,20 @@
 - Resultado: primer puesto compartido (con PACT) en Monad Blitz Medellín V2, 17 oct 2026.
 - Problema: en las natilleras (grupos de ahorro colectivo) el dinero depende de la confianza en un tesorero.
 - Solución: natillera con reglas en un contrato inteligente sobre Monad Testnet y una aplicación web para ver aportes y saldos con transparencia.
-- Funciones: [PENDIENTE: confirmar cuáles quedaron implementadas en el MVP — creación de natilleras, unión y aportes en MON, consulta de saldos, bloqueo de retiros anticipados, retiro al vencimiento, salida de emergencia con penalidad]
-- Stack: Solidity, Monad Testnet (EVM), Scaffold-ETH 2 [PENDIENTE: confirmar stack final].
+- Funciones del MVP (todas en Monad Testnet):
+  - Ahorro: crear natillera, unirse, aportar cuotas y retirar al cierre. Nadie retira antes (sello BLOQUEADO) y no hay administrador.
+  - Salida de emergencia: el socio recibe el 90 % y el 10 % de penalidad queda para el grupo.
+  - Préstamos a empresas o personas: solo se aprueban si todos los socios votan sí, con tope del 50 %, pagaré con huella (hash) en la blockchain (demostración), cobro, pago y mora.
+  - Eventos con inscripción (bingo, rifa, paseo, venta) y donaciones.
+  - "Tu diciembre": muestra el ahorro, la ganancia estimada y de dónde sale.
+  - Página "Confianza": contrato verificado y límites conocidos.
+- Stack: Solidity 0.8.28 (29 pruebas), Scaffold-ETH 2 con Hardhat, Next.js 15, React 19, wagmi, viem y RainbowKit. Desplegado en Vercel; contrato verificado en Sourcify (dirección 0x3FcED7F51b5559bA1FBBB45F0bbb53Bf04409675, Monad Testnet).
 - Rol: desarrollador principal en un equipo de 3. Implementó la mayor parte del proyecto; un compañero apoyó el despliegue del contrato inteligente y otro preparó la presentación.
 - No afirmar que maneja fondos reales (es testnet).
-- Repo/demo: (https://natichain.vercel.app/)
+- Demo: https://natichain.vercel.app/
+- Repo: https://github.com/Brayhan23/natichain (público)
 
 ## Otros proyectos académicos (sección compacta: nombre, una línea, enlace)
-- Presupuesto personal — Next.js — https://github.com/Brayhan23/presupuesto-personal — [PENDIENTE: descripción de una línea]
-- Sistema Experto Diagnóstico — Python — https://github.com/Brayhan23/Sistema_Experto_Diagnostico — [PENDIENTE: descripción]
-- ProyectoRMI — https://github.com/Brayhan23/ProyectoRMI — [PENDIENTE: descripción y tecnología]
+- Presupuesto personal — Next.js, Vercel — https://github.com/Brayhan23/presupuesto-personal — Aplicación web en la nube para crear un presupuesto mensual y llevar el control de los gastos.
+- Sistema Experto Diagnóstico — Python — https://github.com/Brayhan23/Sistema_Experto_Diagnostico — Proyecto académico en Python con una aplicación (app.py) y un cuaderno de Jupyter sobre un agente robot limpiador.
+- ProyectoRMI: NO mostrar por ahora (el repo no tiene descripción ni README). Incluirlo cuando lo tenga.

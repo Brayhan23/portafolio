@@ -22,6 +22,7 @@ export type Proyecto = {
   estado: L;
   anio: string;
   rol: L;
+  origen?: L;
   problema: L;
   solucion: L;
   funciones: L[];
