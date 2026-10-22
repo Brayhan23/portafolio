@@ -104,6 +104,24 @@ body {
   display: none;
 }
 
+/* Header: borde inferior solo tras hacer scroll (scroll-driven animation, sin JS).
+   Sin soporte, el borde se ve siempre. */
+@supports (animation-timeline: scroll()) {
+  .header-scroll {
+    animation: header-borde linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 8px;
+  }
+  @keyframes header-borde {
+    from {
+      border-bottom-color: transparent;
+    }
+    to {
+      border-bottom-color: var(--line);
+    }
+  }
+}
+
 /* Reveal discreto por sección, solo CSS (sin JS). Sin soporte o con reduced-motion: contenido visible. */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {

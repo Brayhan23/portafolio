@@ -3,7 +3,15 @@ import { ui } from "@/content/ui";
 import { t } from "@/lib/i18n";
 import { YouTubeFacade } from "./YouTubeFacade";
 
-export function ProjectVideo({ video, lang, titulo }: { video: Video; lang: Lang; titulo: string }) {
+export function ProjectVideo({
+  video,
+  lang,
+  titulo,
+}: {
+  video: Video;
+  lang: Lang;
+  titulo: string;
+}) {
   const etiqueta = `${t(ui.video.titulo, lang)}: ${titulo}`;
   if ("youtubeId" in video) {
     return (

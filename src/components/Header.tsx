@@ -4,7 +4,6 @@ import type { Lang } from "@/content/types";
 import { ui } from "@/content/ui";
 import { t } from "@/lib/i18n";
 import { Container } from "./Container";
-import { HeaderShell } from "./HeaderShell";
 import { LangSwitch } from "./LangSwitch";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -15,9 +14,10 @@ const enlaces = [
   ["contacto", "contacto"],
 ] as const;
 
+// Header fijo; el borde inferior aparece al hacer scroll solo con CSS (.header-scroll en globals.css).
 export function Header({ lang }: { lang: Lang }) {
   return (
-    <HeaderShell>
+    <header className="header-scroll sticky top-0 z-40 border-b border-line bg-bg">
       <Container className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 py-3">
         <Link href={`/${lang}`} className="font-serif text-xl leading-none">
           {perfil.nombreCorto}
@@ -27,7 +27,11 @@ export function Header({ lang }: { lang: Lang }) {
           className="order-last flex w-full gap-5 text-sm text-muted md:order-none md:w-auto"
         >
           {enlaces.map(([id, clave]) => (
-            <Link key={id} href={`/${lang}#${id}`} className="transition-colors hover:text-accent">
+            <Link
+              key={id}
+              href={`/${lang}#${id}`}
+              className="transition-colors hover:text-accent"
+            >
               {t(ui.nav[clave], lang)}
             </Link>
           ))}
@@ -41,6 +45,6 @@ export function Header({ lang }: { lang: Lang }) {
           />
         </div>
       </Container>
-    </HeaderShell>
+    </header>
   );
 }

@@ -14,7 +14,11 @@ export function Container({
   children: ReactNode;
 }) {
   return (
-    <Tag id={id} aria-labelledby={labelledBy} className={`mx-auto w-full max-w-6xl px-5 md:px-8 ${className}`}>
+    <Tag
+      id={id}
+      aria-labelledby={labelledBy}
+      className={`mx-auto w-full max-w-6xl px-5 md:px-8 ${className}`}
+    >
       {children}
     </Tag>
   );

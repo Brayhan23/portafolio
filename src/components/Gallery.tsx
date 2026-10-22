@@ -4,13 +4,27 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import type { Imagen, Lang } from "@/content/types";
 
-type Textos = { ampliar: string; cerrar: string; anterior: string; siguiente: string; visor: string };
+type Textos = {
+  ampliar: string;
+  cerrar: string;
+  anterior: string;
+  siguiente: string;
+  visor: string;
+};
 
 const boton =
   "rounded-[4px] border border-white/30 px-3 py-1.5 font-mono text-xs text-white transition-colors hover:border-white focus-visible:outline-white";
 
 // Miniaturas + lightbox con <dialog> nativo: showModal() atrapa y devuelve el foco, y Esc cierra.
-export function Gallery({ imagenes, lang, textos }: { imagenes: Imagen[]; lang: Lang; textos: Textos }) {
+export function Gallery({
+  imagenes,
+  lang,
+  textos,
+}: {
+  imagenes: Imagen[];
+  lang: Lang;
+  textos: Textos;
+}) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [actual, setActual] = useState(0);
   const total = imagenes.length;
@@ -44,7 +58,7 @@ export function Gallery({ imagenes, lang, textos }: { imagenes: Imagen[]; lang: 
                 alt={m.alt[lang]}
                 width={m.ancho}
                 height={m.alto}
-                sizes="(min-width: 768px) 33vw, 50vw"
+                sizes="(min-width: 1152px) 356px, (min-width: 768px) 31vw, 47vw"
                 className="aspect-[4/3] w-full object-cover"
               />
             </button>
@@ -56,7 +70,9 @@ export function Gallery({ imagenes, lang, textos }: { imagenes: Imagen[]; lang: 
         ref={dialogRef}
         aria-label={textos.visor}
         onKeyDown={onKeyDown}
-        onClick={(e) => e.target === dialogRef.current && dialogRef.current?.close()}
+        onClick={(e) =>
+          e.target === dialogRef.current && dialogRef.current?.close()
+        }
         className="fixed inset-0 m-0 h-dvh max-h-none w-dvw max-w-none bg-transparent p-0 backdrop:bg-black/90"
       >
         <div className="flex h-full flex-col items-center justify-center gap-4 p-4">
@@ -64,7 +80,12 @@ export function Gallery({ imagenes, lang, textos }: { imagenes: Imagen[]; lang: 
             <p className="font-mono text-sm text-white" aria-live="polite">
               {actual + 1} / {total}
             </p>
-            <button type="button" autoFocus onClick={() => dialogRef.current?.close()} className={boton}>
+            <button
+              type="button"
+              autoFocus
+              onClick={() => dialogRef.current?.close()}
+              className={boton}
+            >
               {textos.cerrar}
             </button>
           </div>
@@ -77,13 +98,25 @@ export function Gallery({ imagenes, lang, textos }: { imagenes: Imagen[]; lang: 
             sizes="100vw"
             className="max-h-[70dvh] w-auto max-w-full object-contain"
           />
-          <p className="min-h-6 max-w-3xl text-center text-sm text-white">{img.leyenda?.[lang]}</p>
+          <p className="min-h-6 max-w-3xl text-center text-sm text-white">
+            {img.leyenda?.[lang]}
+          </p>
           {total > 1 && (
             <div className="flex gap-3">
-              <button type="button" onClick={() => ir(-1)} className={boton} aria-label={textos.anterior}>
+              <button
+                type="button"
+                onClick={() => ir(-1)}
+                className={boton}
+                aria-label={textos.anterior}
+              >
                 ←
               </button>
-              <button type="button" onClick={() => ir(1)} className={boton} aria-label={textos.siguiente}>
+              <button
+                type="button"
+                onClick={() => ir(1)}
+                className={boton}
+                aria-label={textos.siguiente}
+              >
                 →
               </button>
             </div>

@@ -1,31 +1,51 @@
-import { experiencia } from "@/content/experiencia";
+﻿import { experiencia } from "@/content/experiencia";
 import { logros } from "@/content/logros";
 import { perfil } from "@/content/perfil";
 import { proyectosMenores, proyectosOrdenados } from "@/content/proyectos";
 import { LANGS } from "@/content/types";
 import { ui } from "@/content/ui";
+import type { Metadata } from "next";
 import { assertLang, t } from "@/lib/i18n";
+import { metadatos } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return LANGS.map((lang) => ({ lang }));
 }
 
-export default async function Imprimir({ params }: PageProps<"/[lang]/imprimir">) {
+export async function generateMetadata({
+  params,
+}: PageProps<"/[lang]/imprimir">): Promise<Metadata> {
+  const { lang } = await params;
+  assertLang(lang);
+  return metadatos({
+    lang,
+    ruta: "/imprimir",
+    titulo: `${perfil.nombreCorto} — ${t(ui.meta.imprimir, lang)}`,
+    descripcion: t(perfil.resumen, lang),
+    indexar: false,
+  });
+}
+
+export default async function Imprimir({
+  params,
+}: PageProps<"/[lang]/imprimir">) {
   const { lang } = await params;
   assertLang(lang);
   return (
-    <main>
+    <main id="contenido">
       <h1>{perfil.nombre}</h1>
       <p>{t(perfil.titular, lang)}</p>
       <p>
-        {perfil.correo} · {perfil.telefono} · {perfil.linkedin} · {perfil.github} · {perfil.urlSitio}
+        {perfil.correo} · {perfil.telefono} · {perfil.linkedin} ·{" "}
+        {perfil.github} · {perfil.urlSitio}
       </p>
       <p>{t(perfil.resumen, lang)}</p>
 
       <h2>{t(ui.secciones.experiencia, lang)}</h2>
       {experiencia.map((e) => (
         <p key={e.periodo.es + e.organizacion}>
-          {t(e.cargo, lang)} — {e.organizacion} ({t(e.periodo, lang)}). {t(e.descripcion, lang)}
+          {t(e.cargo, lang)} — {e.organizacion} ({t(e.periodo, lang)}).{" "}
+          {t(e.descripcion, lang)}
         </p>
       ))}
 

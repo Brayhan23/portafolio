@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans, Instrument_Serif } from "next/font/google";
+import {
+  IBM_Plex_Mono,
+  IBM_Plex_Sans,
+  Instrument_Serif,
+} from "next/font/google";
+import { connection } from "next/server";
 import { LANGS } from "@/content/types";
 import { ui } from "@/content/ui";
-import { assertLang } from "@/lib/i18n";
+import { assertLang, t } from "@/lib/i18n";
+import { metadatos } from "@/lib/metadata";
+import { temaInicial } from "@/lib/tema";
 import "../globals.css";
 
 const serif = Instrument_Serif({
@@ -17,24 +24,32 @@ const sans = IBM_Plex_Sans({
 });
 const mono = IBM_Plex_Mono({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: "400",
   variable: "--font-plex-mono",
 });
-
-// Aplica el tema guardado antes del primer pintado (evita parpadeo). Sin preferencia guardada manda el sistema vía CSS.
-const temaInicial = `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
 
 export function generateStaticParams() {
   return LANGS.map((lang) => ({ lang }));
 }
 
-export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: LayoutProps<"/[lang]">): Promise<Metadata> {
   const { lang } = await params;
   assertLang(lang);
-  return { title: ui.meta.titulo[lang], description: ui.meta.descripcion[lang] };
+  return metadatos({
+    lang,
+    titulo: t(ui.meta.titulo, lang),
+    descripcion: t(ui.meta.descripcion, lang),
+  });
 }
 
-export default async function RootLayout({ children, params }: LayoutProps<"/[lang]">) {
+export default async function RootLayout({
+  children,
+  params,
+}: LayoutProps<"/[lang]">) {
+  // Render por petición: necesario para que Next.js aplique el nonce de la CSP (src/proxy.ts).
+  await connection();
   const { lang } = await params;
   assertLang(lang);
   return (
@@ -46,7 +61,15 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
       <head>
         <script dangerouslySetInnerHTML={{ __html: temaInicial }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <a
+          href="#contenido"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-[4px] focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-bg"
+        >
+          {t(ui.botones.saltar, lang)}
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

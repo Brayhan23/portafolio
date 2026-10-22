@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { TextLink } from "@/components/ButtonLink";
+import type { Metadata } from "next";
+import { ButtonLink, TextLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { Gallery } from "@/components/Gallery";
 import { ProjectCover } from "@/components/ProjectCover";
@@ -12,14 +13,31 @@ import {
   proyectos,
   proyectosOrdenados,
 } from "@/content/proyectos";
+import { perfil } from "@/content/perfil";
 import { LANGS } from "@/content/types";
 import { ui } from "@/content/ui";
 import { assertLang, t } from "@/lib/i18n";
+import { metadatos } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return LANGS.flatMap((lang) =>
     proyectos.map((p) => ({ lang, slug: p.slug })),
   );
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps<"/[lang]/proyectos/[slug]">): Promise<Metadata> {
+  const { lang, slug } = await params;
+  assertLang(lang);
+  const p = getProyecto(slug);
+  if (!p) notFound();
+  return metadatos({
+    lang,
+    ruta: `/proyectos/${slug}`,
+    titulo: `${p.titulo} — ${perfil.nombreCorto}`,
+    descripcion: t(p.resumen, lang),
+  });
 }
 
 // Versión corta del rol para el bloque de metadatos: lo previo a " — " o la primera oración.
@@ -127,12 +145,25 @@ export default async function Proyecto({
           </div>
         </dl>
 
+        {p.enlaces.demo && (
+          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+            <ButtonLink href={p.enlaces.demo} external>
+              {t(ui.botones.verDemo, lang)} ↗
+            </ButtonLink>
+            {p.enlaces.notaDemo && (
+              <p className="text-sm text-muted">
+                {t(p.enlaces.notaDemo, lang)}
+              </p>
+            )}
+          </div>
+        )}
+
         <div className="mt-10 overflow-hidden border border-line">
           <ProjectCover
             proyecto={p}
             lang={lang}
             priority
-            sizes="(min-width: 1152px) 1152px, 100vw"
+            sizes="(min-width: 1152px) 1088px, calc(100vw - 48px)"
           />
         </div>
       </Container>

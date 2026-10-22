@@ -9,7 +9,10 @@ export function LangSwitch({ lang, label }: { lang: Lang; label: string }) {
   const pathname = usePathname();
   const resto = pathname.split("/").slice(2).join("/");
   return (
-    <nav aria-label={label} className="flex items-center gap-1 font-mono text-xs">
+    <nav
+      aria-label={label}
+      className="flex items-center gap-1 font-mono text-xs"
+    >
       {LANGS.map((l) => (
         <Link
           key={l}

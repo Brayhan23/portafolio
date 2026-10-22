@@ -13,7 +13,8 @@ export default function NotFound() {
           </h1>
           <p>{n.texto.es}</p>
           <p>{n.texto.en}</p>
-          <Link href="/es">{n.volver.es}</Link> · <Link href="/en">{n.volver.en}</Link>
+          <Link href="/es">{n.volver.es}</Link> ·{" "}
+          <Link href="/en">{n.volver.en}</Link>
         </main>
       </body>
     </html>

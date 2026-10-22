@@ -50,7 +50,126 @@ export const proyectos: Proyecto[] = [
       },
     ],
     stack: ["Node.js", "Express 5", "SQLite (better-sqlite3)", "JavaScript", "HTML5", "CSS3", "PDFKit", "ExcelJS", "bcrypt", "@yao-pkg/pkg"],
-    imagenes: [],
+    // Capturas con datos simulados.
+    imagenes: [
+      {
+        src: "/proyectos/app-milagros/01-venta.webp",
+        ancho: 1440,
+        alto: 809,
+        alt: {
+          es: "Pantalla de nueva venta con un producto en el carrito, tipo de cliente, método de pago y total con IVA",
+          en: "New sale screen with one product in the cart, customer type, payment method and total with VAT",
+        },
+        leyenda: {
+          es: "Punto de venta: el producto se agrega escaneando el código de barras o buscándolo por nombre.",
+          en: "Point of sale: products are added by scanning the barcode or searching by name.",
+        },
+      },
+      {
+        src: "/proyectos/app-milagros/02-factura.webp",
+        ancho: 1440,
+        alto: 987,
+        alt: {
+          es: "Factura generada con detalle del producto, método de pago, total y opción de enviar copia por correo",
+          en: "Generated invoice with product details, payment method, total and an option to email a copy",
+        },
+        leyenda: {
+          es: "Factura lista para imprimir o enviar por correo al cliente.",
+          en: "Invoice ready to print or email to the customer.",
+        },
+      },
+      {
+        src: "/proyectos/app-milagros/03-inventario.webp",
+        ancho: 1440,
+        alto: 1045,
+        alt: {
+          es: "Tabla de inventario con código, precios de compra, detal y mayor, stock y un aviso de stock bajo",
+          en: "Inventory table with code, purchase, retail and wholesale prices, stock and a low-stock warning",
+        },
+        leyenda: {
+          es: "Inventario con precios de compra, detal y mayor, y aviso de productos con poco stock.",
+          en: "Inventory with purchase, retail and wholesale prices, and a warning for low-stock products.",
+        },
+      },
+      {
+        src: "/proyectos/app-milagros/04-ingreso-stock.webp",
+        ancho: 1440,
+        alto: 1215,
+        alt: {
+          es: "Formulario en línea para sumar unidades al stock de un producto",
+          en: "Inline form to add units to a product's stock",
+        },
+        leyenda: {
+          es: "Ingreso de mercancía directamente desde la fila del producto.",
+          en: "Stock intake directly from the product row.",
+        },
+      },
+      {
+        src: "/proyectos/app-milagros/05-cliente-credito.webp",
+        ancho: 1440,
+        alto: 846,
+        alt: {
+          es: "Ficha de cliente con deuda total, facturas a crédito, saldo pendiente y alerta de mora",
+          en: "Customer record with total debt, credit invoices, outstanding balance and an overdue alert",
+        },
+        leyenda: {
+          es: "Control de deudores: facturas a crédito, saldos y días de mora por cliente.",
+          en: "Debtor tracking: credit invoices, balances and days overdue per customer.",
+        },
+      },
+      {
+        src: "/proyectos/app-milagros/06-registrar-abono.webp",
+        ancho: 1440,
+        alto: 1020,
+        alt: {
+          es: "Formulario para registrar un pago parcial sobre una factura a crédito",
+          en: "Form to record a partial payment on a credit invoice",
+        },
+        leyenda: {
+          es: "Registro de abonos sobre una factura a crédito.",
+          en: "Recording partial payments on a credit invoice.",
+        },
+      },
+      {
+        src: "/proyectos/app-milagros/07-ventas-del-dia.webp",
+        ancho: 1440,
+        alto: 1190,
+        alt: {
+          es: "Reporte de ventas del día con totales, ganancia, IVA, desglose por método de pago y lista de ventas",
+          en: "Daily sales report with totals, profit, VAT, breakdown by payment method and list of sales",
+        },
+        leyenda: {
+          es: "Reporte diario: facturado, recibido en caja, ganancia e IVA, con desglose por método de pago.",
+          en: "Daily report: billed, cash received, profit and VAT, broken down by payment method.",
+        },
+      },
+      {
+        src: "/proyectos/app-milagros/08-mas-vendidos.webp",
+        ancho: 1440,
+        alto: 631,
+        alt: {
+          es: "Tabla de productos más vendidos con unidades vendidas e ingreso generado en un rango de fechas",
+          en: "Best-selling products table with units sold and revenue generated over a date range",
+        },
+        leyenda: {
+          es: "Productos más vendidos en un rango de fechas.",
+          en: "Best-selling products over a date range.",
+        },
+      },
+      {
+        src: "/proyectos/app-milagros/09-auditoria.webp",
+        ancho: 1440,
+        alto: 1507,
+        alt: {
+          es: "Registro de actividad con fecha, usuario, acción y detalle de ventas e inicios de sesión",
+          en: "Activity log with date, user, action and details of sales and logins",
+        },
+        leyenda: {
+          es: "Auditoría: quién hizo qué y cuándo, solo lectura.",
+          en: "Audit log: who did what and when, read-only.",
+        },
+      },
+    ],
     enlaces: {
       repo: "https://github.com/Brayhan23/app-milagros",
     },

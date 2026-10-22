@@ -6,39 +6,59 @@ type Props = {
   variant?: "primary" | "secondary";
   external?: boolean;
   download?: boolean;
+  className?: string;
 };
 
 const base =
   "inline-flex items-center justify-center rounded-[4px] border px-5 py-2.5 text-sm font-medium transition-colors";
 const variants = {
-  primary: "border-accent bg-accent text-bg hover:bg-transparent hover:text-accent",
+  primary:
+    "border-accent bg-accent text-bg hover:bg-transparent hover:text-accent",
   secondary: "border-line text-ink hover:border-accent hover:text-accent",
 };
 
-export function ButtonLink({ href, children, variant = "primary", external, download }: Props) {
-  const className = `${base} ${variants[variant]}`;
+export function ButtonLink({
+  href,
+  children,
+  variant = "primary",
+  external,
+  download,
+  className = "",
+}: Props) {
+  const clases = `${base} ${variants[variant]} ${className}`;
   if (external) {
     return (
-      <a href={href} className={className} target="_blank" rel="noopener noreferrer">
+      <a
+        href={href}
+        className={clases}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {children}
       </a>
     );
   }
   if (download || href.startsWith("mailto:")) {
     return (
-      <a href={href} className={className} download={download || undefined}>
+      <a href={href} className={clases} download={download || undefined}>
         {children}
       </a>
     );
   }
   return (
-    <Link href={href} className={className}>
+    <Link href={href} className={clases}>
       {children}
     </Link>
   );
 }
 
-export function TextLink({ href, children }: { href: string; children: React.ReactNode }) {
+export function TextLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
     <a
       href={href}

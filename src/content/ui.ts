@@ -5,6 +5,7 @@ export const ui = {
       es: "Portafolio de Brayhan Escobar: casos de estudio de software full stack.",
       en: "Brayhan Escobar's portfolio: full stack software case studies.",
     },
+    imprimir: { es: "Portafolio (versión PDF)", en: "Portfolio (PDF version)" },
   },
   nav: {
     proyectos: { es: "Proyectos", en: "Projects" },
@@ -21,6 +22,8 @@ export const ui = {
     verCaso: { es: "Ver caso de estudio", en: "View case study" },
     repo: { es: "Repositorio", en: "Repository" },
     demo: { es: "Demo", en: "Demo" },
+    verDemo: { es: "Ver demo en vivo", en: "View live demo" },
+    saltar: { es: "Saltar al contenido", en: "Skip to content" },
     anterior: { es: "Anterior", en: "Previous" },
     siguiente: { es: "Siguiente", en: "Next" },
   },

@@ -13,7 +13,10 @@ export function ThemeToggle({
   function alternar() {
     const root = document.documentElement;
     const actual =
-      root.dataset.theme ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      root.dataset.theme ??
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light");
     const siguiente = actual === "dark" ? "light" : "dark";
     root.dataset.theme = siguiente;
     try {
