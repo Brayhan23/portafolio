@@ -56,6 +56,12 @@ export const ui = {
     },
   },
   idioma: { es: "Idioma", en: "Language" },
+  navegacion: { es: "Principal", en: "Main" },
+  tema: {
+    cambiar: { es: "Cambiar tema", en: "Toggle theme" },
+    claro: { es: "Claro", en: "Light" },
+    oscuro: { es: "Oscuro", en: "Dark" },
+  },
   noEncontrado: {
     titulo: { es: "Página no encontrada", en: "Page not found" },
     texto: {

@@ -1,1 +1,126 @@
 @import "tailwindcss";
+
+/* Tokens (CLAUDE.md). Claro por defecto; oscuro por preferencia del sistema o data-theme. */
+:root {
+  --bg: #f5f2eb;
+  --surface: #fbfaf6;
+  --ink: #16181a;
+  --muted: #5e615f;
+  --line: #dad5ca;
+  --accent: #1e5b47;
+  --accent-soft: #e3ece6;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111312;
+    --surface: #181b19;
+    --ink: #eceae4;
+    --muted: #9a9d98;
+    --line: #2a2e2b;
+    --accent: #6fbf9c;
+    --accent-soft: #1c2a24;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #111312;
+  --surface: #181b19;
+  --ink: #eceae4;
+  --muted: #9a9d98;
+  --line: #2a2e2b;
+  --accent: #6fbf9c;
+  --accent-soft: #1c2a24;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --font-sans: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+html {
+  scroll-padding-top: 7rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+/* Etiquetas del toggle de tema: se muestra la del tema destino sin depender de JS. */
+.if-dark {
+  display: none;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .if-light {
+    display: none;
+  }
+  :root:not([data-theme="light"]) .if-dark {
+    display: inline;
+  }
+}
+:root[data-theme="dark"] .if-light {
+  display: none;
+}
+:root[data-theme="dark"] .if-dark {
+  display: inline;
+}
+:root[data-theme="light"] .if-light {
+  display: inline;
+}
+:root[data-theme="light"] .if-dark {
+  display: none;
+}
+
+/* Reveal discreto por sección, solo CSS (sin JS). Sin soporte o con reduced-motion: contenido visible. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 25%;
+    }
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
+}

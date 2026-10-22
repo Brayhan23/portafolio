@@ -15,7 +15,7 @@ export default async function Proyecto({ params }: PageProps<"/[lang]/proyectos/
   const p = getProyecto(slug);
   if (!p) notFound();
   return (
-    <main>
+    <main id="contenido" className="mx-auto max-w-3xl px-5 py-12 md:px-8">
       <Link href={`/${lang}`}>{t(ui.botones.volver, lang)}</Link>
       <h1>{p.titulo}</h1>
       <p>

@@ -36,6 +36,10 @@ export const perfil = {
       },
     },
   ],
+  cv: {
+    es: "/cv/portafolio-brayhan-escobar-es.pdf",
+    en: "/cv/portafolio-brayhan-escobar-en.pdf",
+  } satisfies L,
   correo: "escobarb634@gmail.com",
   // Solo para la versión PDF (/imprimir). Nunca mostrar en el sitio web.
   telefono: "+57 321 776 9409",
