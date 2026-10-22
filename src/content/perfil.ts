@@ -78,6 +78,5 @@ export const perfil = {
       en: "Automated testing",
     } satisfies L,
   ] as (string | L)[],
-  // [PENDIENTE: URL final del sitio en Vercel]. Vacío = no se muestra en la versión impresa.
-  urlSitio: "",
+  urlSitio: "https://portafolio-theta-ashy.vercel.app",
 };
