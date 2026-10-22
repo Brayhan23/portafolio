@@ -1,0 +1,67 @@
+export const ui = {
+  meta: {
+    titulo: { es: "Brayhan Escobar — Desarrollador Full Stack", en: "Brayhan Escobar — Full Stack Developer" },
+    descripcion: {
+      es: "Portafolio de Brayhan Escobar: casos de estudio de software full stack.",
+      en: "Brayhan Escobar's portfolio: full stack software case studies.",
+    },
+  },
+  nav: {
+    proyectos: { es: "Proyectos", en: "Projects" },
+    experiencia: { es: "Experiencia", en: "Experience" },
+    logros: { es: "Logros", en: "Achievements" },
+    contacto: { es: "Contacto", en: "Contact" },
+  },
+  botones: {
+    verProyectos: { es: "Ver proyectos", en: "View projects" },
+    descargarPdf: { es: "Descargar PDF", en: "Download PDF" },
+    escribeme: { es: "Escríbeme", en: "Get in touch" },
+    imprimir: { es: "Imprimir / Guardar PDF", en: "Print / Save as PDF" },
+    volver: { es: "Volver al inicio", en: "Back to home" },
+    verCaso: { es: "Ver caso de estudio", en: "View case study" },
+    repo: { es: "Repositorio", en: "Repository" },
+    demo: { es: "Demo", en: "Demo" },
+    anterior: { es: "Anterior", en: "Previous" },
+    siguiente: { es: "Siguiente", en: "Next" },
+  },
+  secciones: {
+    destacados: { es: "Proyectos destacados", en: "Featured projects" },
+    otros: { es: "Otros proyectos académicos", en: "Other academic projects" },
+    experiencia: { es: "Experiencia", en: "Experience" },
+    logros: { es: "Logros", en: "Achievements" },
+    contacto: { es: "Contacto", en: "Contact" },
+    formacion: { es: "Formación", en: "Education" },
+    problema: { es: "Problema", en: "Problem" },
+    solucion: { es: "Solución", en: "Solution" },
+    funciones: { es: "Funciones", en: "Features" },
+    decisiones: { es: "Decisiones técnicas", en: "Technical decisions" },
+    rol: { es: "Mi rol", en: "My role" },
+    galeria: { es: "Galería", en: "Gallery" },
+    enlaces: { es: "Enlaces", en: "Links" },
+  },
+  campos: {
+    tipo: { es: "Tipo", en: "Type" },
+    estado: { es: "Estado", en: "Status" },
+    anio: { es: "Año", en: "Year" },
+    rol: { es: "Rol", en: "Role" },
+    stack: { es: "Stack", en: "Stack" },
+    nombre: { es: "Nombre", en: "Name" },
+    descripcion: { es: "Descripción", en: "Description" },
+    tecnologias: { es: "Tecnologías", en: "Technologies" },
+  },
+  contacto: {
+    frase: {
+      es: "¿Tienes un proyecto o una oportunidad en mente? Conversemos.",
+      en: "Have a project or an opportunity in mind? Let's talk.",
+    },
+  },
+  idioma: { es: "Idioma", en: "Language" },
+  noEncontrado: {
+    titulo: { es: "Página no encontrada", en: "Page not found" },
+    texto: {
+      es: "La página que buscas no existe.",
+      en: "The page you are looking for does not exist.",
+    },
+    volver: { es: "Volver al inicio", en: "Back to home" },
+  },
+};
