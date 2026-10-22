@@ -55,7 +55,14 @@ export const perfil = {
       en: "Portrait of Brayhan Escobar",
     } satisfies L,
   },
-  stackPrincipal: ["React", "JavaScript", "Next.js", "Node.js", "PostgreSQL", "SQLite"],
+  stackPrincipal: [
+    "React",
+    "JavaScript",
+    "Next.js",
+    "Node.js",
+    "PostgreSQL",
+    "SQLite",
+  ],
   stackTambien: [
     "TypeScript",
     "Express",

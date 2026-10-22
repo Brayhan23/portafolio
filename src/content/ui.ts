@@ -1,6 +1,11 @@
+export const verPublicacion = { es: "Ver publicación", en: "View post" };
+
 export const ui = {
   meta: {
-    titulo: { es: "Brayhan Escobar — Desarrollador Full Stack", en: "Brayhan Escobar — Full Stack Developer" },
+    titulo: {
+      es: "Brayhan Escobar — Desarrollador Full Stack",
+      en: "Brayhan Escobar — Full Stack Developer",
+    },
     descripcion: {
       es: "Portafolio de Brayhan Escobar: casos de estudio de software full stack.",
       en: "Brayhan Escobar's portfolio: full stack software case studies.",

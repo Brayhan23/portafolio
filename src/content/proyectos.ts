@@ -1,4 +1,5 @@
 import type { Proyecto, ProyectoMenor } from "./types";
+import { verPublicacion } from "./ui";
 
 export const proyectos: Proyecto[] = [
   {
@@ -26,8 +27,14 @@ export const proyectos: Proyecto[] = [
     funciones: [
       { es: "Productos y stock", en: "Products and stock" },
       { es: "Escáner de códigos de barras", en: "Barcode scanner" },
-      { es: "Ventas a crédito y control de deudores", en: "Credit sales and debtor tracking" },
-      { es: "Facturación con impresora térmica de 80 mm", en: "Invoicing with an 80 mm thermal printer" },
+      {
+        es: "Ventas a crédito y control de deudores",
+        en: "Credit sales and debtor tracking",
+      },
+      {
+        es: "Facturación con impresora térmica de 80 mm",
+        en: "Invoicing with an 80 mm thermal printer",
+      },
       { es: "Recibos por correo", en: "Receipts by email" },
       { es: "Reportes e historial", en: "Reports and history" },
       { es: "Exportación a Excel y PDF", en: "Export to Excel and PDF" },
@@ -35,21 +42,38 @@ export const proyectos: Proyecto[] = [
     ],
     decisiones: [
       {
-        titulo: { es: "SQLite en lugar de PostgreSQL", en: "SQLite instead of PostgreSQL" },
+        titulo: {
+          es: "SQLite en lugar de PostgreSQL",
+          en: "SQLite instead of PostgreSQL",
+        },
         detalle: {
           es: "Es una base de datos liviana que va incluida en el mismo paquete de la aplicación, así que no hay que instalar nada en el equipo del cliente.",
           en: "It is a lightweight database bundled in the same package as the application, so nothing has to be installed on the client's machine.",
         },
       },
       {
-        titulo: { es: "Rendimiento en 4 GB de RAM", en: "Performance on 4 GB of RAM" },
+        titulo: {
+          es: "Rendimiento en 4 GB de RAM",
+          en: "Performance on 4 GB of RAM",
+        },
         detalle: {
           es: "El servidor del cliente tenía esa limitación, por lo que se redujo el trabajo innecesario tanto en el servidor como en el cliente. Por ejemplo, no se incluyeron imágenes de productos, para mantener el sistema liviano.",
           en: "The client's machine had that limitation, so unnecessary work was reduced on both the server and the client. For example, product images were left out to keep the system lightweight.",
         },
       },
     ],
-    stack: ["Node.js", "Express 5", "SQLite (better-sqlite3)", "JavaScript", "HTML5", "CSS3", "PDFKit", "ExcelJS", "bcrypt", "@yao-pkg/pkg"],
+    stack: [
+      "Node.js",
+      "Express 5",
+      "SQLite (better-sqlite3)",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "PDFKit",
+      "ExcelJS",
+      "bcrypt",
+      "@yao-pkg/pkg",
+    ],
     // Capturas con datos simulados.
     imagenes: [
       {
@@ -215,7 +239,15 @@ export const proyectos: Proyecto[] = [
         },
       },
     ],
-    stack: ["Next.js (App Router)", "React", "TypeScript", "Tailwind CSS v4", "clsx", "tailwind-merge", "Vercel"],
+    stack: [
+      "Next.js (App Router)",
+      "React",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "clsx",
+      "tailwind-merge",
+      "Vercel",
+    ],
     imagenes: [],
     enlaces: {
       demo: "https://apex-web-gamma.vercel.app/",
@@ -260,7 +292,18 @@ export const proyectos: Proyecto[] = [
         },
       },
     ],
-    stack: ["Python 3.10+", "Flask", "Flask-SocketIO", "threading (locks por partida)", "JavaScript", "HTML5", "CSS3", "qrcode.js", "unittest", "Render"],
+    stack: [
+      "Python 3.10+",
+      "Flask",
+      "Flask-SocketIO",
+      "threading (locks por partida)",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "qrcode.js",
+      "unittest",
+      "Render",
+    ],
     imagenes: [],
     enlaces: {
       demo: "https://juego-adivina-quien-web.onrender.com/",
@@ -277,8 +320,12 @@ export const proyectos: Proyecto[] = [
     slug: "natichain",
     titulo: "NatiChain",
     resumen: {
-      es: "Natillera con reglas en un contrato inteligente sobre Monad Testnet. Primer puesto compartido en Monad Blitz Medellín V2.",
-      en: "Savings circle (natillera) governed by a smart contract on Monad Testnet. Shared first place at Monad Blitz Medellín V2.",
+      es: "Natillera con reglas en un contrato inteligente sobre Monad Testnet. Ganador de Monad Blitz Medellín V2.",
+      en: "Savings circle (natillera) governed by a smart contract on Monad Testnet. Winner of Monad Blitz Medellín V2.",
+    },
+    resultado: {
+      es: "Resultado: primer puesto compartido (con PACT) en Monad Blitz Medellín V2, 17 oct 2026.",
+      en: "Result: shared first place (with PACT) at Monad Blitz Medellín V2, Oct 17, 2026.",
     },
     tipo: { es: "Hackathon", en: "Hackathon" },
     estado: { es: "Prototipo", en: "Prototype" },
@@ -313,12 +360,12 @@ export const proyectos: Proyecto[] = [
         en: "Events with sign-up (bingo, raffle, outing, sale) and donations.",
       },
       {
-        es: "\"Tu diciembre\": muestra el ahorro, la ganancia estimada y de dónde sale.",
-        en: "\"Your December\": shows your savings, the estimated gain and where it comes from.",
+        es: '"Tu diciembre": muestra el ahorro, la ganancia estimada y de dónde sale.',
+        en: '"Your December": shows your savings, the estimated gain and where it comes from.',
       }, // revisar-en
       {
-        es: "Página \"Confianza\": contrato verificado y límites conocidos.",
-        en: "\"Trust\" page: verified contract and known limitations.",
+        es: 'Página "Confianza": contrato verificado y límites conocidos.',
+        en: '"Trust" page: verified contract and known limitations.',
       },
     ],
     decisiones: [],
@@ -339,6 +386,10 @@ export const proyectos: Proyecto[] = [
     enlaces: {
       demo: "https://natichain.vercel.app/",
       repo: "https://github.com/Brayhan23/natichain",
+      evidencia: {
+        url: "https://www.instagram.com/p/DesASpDlpte/",
+        etiqueta: verPublicacion,
+      },
     },
     destacado: true,
     orden: 4,
@@ -366,5 +417,8 @@ export const proyectosMenores: ProyectoMenor[] = [
   },
 ];
 
-export const proyectosOrdenados = [...proyectos].sort((a, b) => a.orden - b.orden);
-export const getProyecto = (slug: string) => proyectos.find((p) => p.slug === slug);
+export const proyectosOrdenados = [...proyectos].sort(
+  (a, b) => a.orden - b.orden,
+);
+export const getProyecto = (slug: string) =>
+  proyectos.find((p) => p.slug === slug);

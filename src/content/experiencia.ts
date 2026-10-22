@@ -18,7 +18,8 @@ export const experiencia: Experiencia[] = [
       es: "Auxiliar docente de Investigación de Operaciones",
       en: "Teaching Assistant, Operations Research",
     },
-    organizacion: "Politécnico Colombiano Jaime Isaza Cadavid — Facultad de Ingeniería",
+    organizacion:
+      "Politécnico Colombiano Jaime Isaza Cadavid — Facultad de Ingeniería",
     periodo: { es: "ago 2026 – actualidad", en: "Aug 2026 – present" },
     descripcion: {
       es: "Asesorías a estudiantes y clases en sustitución de docentes.",
@@ -30,7 +31,8 @@ export const experiencia: Experiencia[] = [
       es: "Estudiante investigador",
       en: "Student researcher",
     },
-    organizacion: "Semillero SIIC (IA) — Politécnico Colombiano Jaime Isaza Cadavid",
+    organizacion:
+      "Semillero SIIC (IA) — Politécnico Colombiano Jaime Isaza Cadavid",
     periodo: { es: "jul 2026 – actualidad", en: "Jul 2026 – present" },
     descripcion: {
       es: "Iniciativa APEX: gamificación e IA responsable para el aprendizaje de programación (investigación en curso, sin resultados publicados aún).",

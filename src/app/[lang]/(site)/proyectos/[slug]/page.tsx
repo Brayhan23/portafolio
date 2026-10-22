@@ -77,7 +77,7 @@ export default async function Proyecto({
     {
       id: "enlaces",
       titulo: ui.secciones.enlaces,
-      ver: !!(p.enlaces.demo || p.enlaces.repo),
+      ver: !!(p.enlaces.demo || p.enlaces.repo || p.enlaces.evidencia),
     },
   ]
     .filter((s) => s.ver)
@@ -122,6 +122,11 @@ export default async function Proyecto({
         </p>
         {p.origen && (
           <p className="mt-3 max-w-2xl text-muted">{t(p.origen, lang)}</p>
+        )}
+        {p.resultado && (
+          <p className="mt-3 max-w-2xl font-mono text-sm text-accent">
+            {t(p.resultado, lang)}
+          </p>
         )}
 
         <dl className="mt-10 grid gap-x-8 gap-y-5 border-y border-line py-5 font-mono text-sm sm:grid-cols-2 md:grid-cols-4">
@@ -260,6 +265,13 @@ export default async function Proyecto({
                   <span className="ml-3 font-mono text-xs text-muted">
                     {p.enlaces.repo}
                   </span>
+                </li>
+              )}
+              {p.enlaces.evidencia && (
+                <li>
+                  <TextLink href={p.enlaces.evidencia.url}>
+                    {t(p.enlaces.evidencia.etiqueta, lang)} ↗
+                  </TextLink>
                 </li>
               )}
             </ul>

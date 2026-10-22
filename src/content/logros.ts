@@ -1,4 +1,5 @@
 import type { Logro } from "./types";
+import { verPublicacion } from "./ui";
 
 export const logros: Logro[] = [
   {
@@ -11,12 +12,20 @@ export const logros: Logro[] = [
       es: "Universidad EAFIT. Clasificado a ICPC South America North Finals 2026.",
       en: "Universidad EAFIT. Qualified for the ICPC South America North Finals 2026.",
     },
+    evidencia: {
+      url: "https://www.instagram.com/p/DeFliDwlsoF/",
+      etiqueta: verPublicacion,
+    },
   },
   {
     fecha: { es: "17 oct 2026", en: "Oct 17, 2026" },
     titulo: {
-      es: "NatiChain — primer puesto compartido en Monad Blitz Medellín V2",
-      en: "NatiChain — shared first place at Monad Blitz Medellín V2",
+      es: "NatiChain — primer puesto compartido (con PACT) en Monad Blitz Medellín V2",
+      en: "NatiChain — shared first place (with PACT) at Monad Blitz Medellín V2",
+    },
+    evidencia: {
+      url: "https://www.instagram.com/p/DesASpDlpte/",
+      etiqueta: verPublicacion,
     },
     detalle: {
       es: "Hackathon en Medellín.",

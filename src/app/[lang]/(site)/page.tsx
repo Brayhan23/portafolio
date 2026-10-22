@@ -210,6 +210,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               <div>
                 <h3 className="text-lg font-medium">{t(l.titulo, lang)}</h3>
                 <p className="mt-1 text-muted">{t(l.detalle, lang)}</p>
+                {l.evidencia && (
+                  <p className="mt-1 text-sm">
+                    <TextLink href={l.evidencia.url}>
+                      {t(l.evidencia.etiqueta, lang)} ↗
+                    </TextLink>
+                  </p>
+                )}
               </div>
             </li>
           ))}

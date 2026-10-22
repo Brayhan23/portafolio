@@ -207,6 +207,12 @@ export default async function Imprimir({
                             <Url href={p.enlaces.repo} />
                           </span>
                         )}
+                        {p.enlaces.evidencia && (
+                          <span className="block">
+                            {t(p.enlaces.evidencia.etiqueta, lang)}:{" "}
+                            <Url href={p.enlaces.evidencia.url} />
+                          </span>
+                        )}
                       </dd>
                     </dl>
                   </div>
@@ -247,6 +253,13 @@ export default async function Imprimir({
                   <span>
                     <span className="font-medium">{t(l.titulo, lang)}.</span>{" "}
                     {t(l.detalle, lang)}
+                    {l.evidencia && (
+                      <span className="font-mono text-[8pt]">
+                        {" "}
+                        {t(l.evidencia.etiqueta, lang)}:{" "}
+                        <Url href={l.evidencia.url} />
+                      </span>
+                    )}
                   </span>
                 </li>
               ))}
