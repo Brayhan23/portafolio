@@ -48,3 +48,19 @@ video: { youtubeId: "XXXXXXXXXXX" },
 ```
 
 El video y la galería aparecen en la sección «Galería» del caso de estudio.
+
+## Versión PDF
+
+`/es/imprimir` y `/en/imprimir` muestran el portafolio en A4. El teléfono solo aparece con `?contacto=completo`.
+
+Para regenerar los PDF (Chrome instalado, Windows):
+
+```powershell
+npm run build; npm start            # en otra terminal
+powershell -File scripts/generar-pdf.ps1
+```
+
+- `public/cv/portafolio-brayhan-escobar-{es,en}.pdf`: públicos, sin teléfono (botón "Descargar PDF").
+- `_privado/portafolio-brayhan-escobar-{es,en}-completo.pdf`: con teléfono, para enviar por correo (no se sube a git).
+
+Regenéralos cada vez que cambie `src/content/` o cuando se defina `urlSitio` en `perfil.ts`.

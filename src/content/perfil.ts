@@ -71,6 +71,6 @@ export const perfil = {
       en: "Automated testing",
     } satisfies L,
   ] as (string | L)[],
-  // revisar-en: dominio definitivo para la versión impresa
-  urlSitio: "[PENDIENTE: URL final del sitio en Vercel]",
+  // [PENDIENTE: URL final del sitio en Vercel]. Vacío = no se muestra en la versión impresa.
+  urlSitio: "",
 };

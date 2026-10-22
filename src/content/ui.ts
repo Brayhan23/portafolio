@@ -34,6 +34,7 @@ export const ui = {
     logros: { es: "Logros", en: "Achievements" },
     contacto: { es: "Contacto", en: "Contact" },
     formacion: { es: "Formación", en: "Education" },
+    perfil: { es: "Perfil", en: "Profile" },
     problema: { es: "Problema", en: "Problem" },
     solucion: { es: "Solución", en: "Solution" },
     funciones: { es: "Funciones", en: "Features" },

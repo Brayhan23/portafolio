@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 /* Tokens (CLAUDE.md). Claro por defecto; oscuro por preferencia del sistema o data-theme. */
 :root {
@@ -102,6 +102,38 @@ body {
 }
 :root[data-theme="light"] .if-dark {
   display: none;
+}
+
+/* Versión imprimible: siempre en tema claro, aunque el sitio esté en oscuro. */
+.hoja-impresion {
+  --bg: #f5f2eb;
+  --surface: #fbfaf6;
+  --ink: #16181a;
+  --muted: #5e615f;
+  --line: #dad5ca;
+  --accent: #1e5b47;
+  --accent-soft: #e3ece6;
+  color-scheme: light;
+}
+
+@page {
+  size: A4;
+  margin: 14mm;
+}
+
+@media print {
+  html,
+  body,
+  .hoja-impresion {
+    background: #fff !important;
+  }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  a {
+    text-decoration: none;
+  }
 }
 
 /* Header: borde inferior solo tras hacer scroll (scroll-driven animation, sin JS).
