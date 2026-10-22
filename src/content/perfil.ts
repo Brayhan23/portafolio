@@ -43,10 +43,9 @@ export const perfil = {
     "https://www.linkedin.com/in/brayhan-alexander-escobar-rivera-510ab1389/",
   github: "https://github.com/Brayhan23",
   foto: {
-    // [PENDIENTE: el archivo real se llama brayhan.webp.jpeg; convertir/renombrar a brayhan.webp]
-    src: "/perfil/brayhan.webp.jpeg",
-    ancho: 800,
-    alto: 1000,
+    src: "/perfil/brayhan.jpg",
+    ancho: 1258,
+    alto: 1086,
     alt: {
       es: "Retrato de Brayhan Escobar",
       en: "Portrait of Brayhan Escobar",

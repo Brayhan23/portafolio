@@ -35,4 +35,4 @@ Estética "documento técnico editorial": sobria, precisa, con carácter.
 - Sin secretos en el repo; `.gitignore` incluye `.env*`.
 - Teléfono SOLO en la versión de impresión/PDF, nunca en el sitio web.
 - Capturas de proyectos comerciales: solo con datos ficticios.
-- `npm audit` al cerrar cada fase.
+- `npm audit --omit=dev` al cerrar cada fase.

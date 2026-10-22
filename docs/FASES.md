@@ -1,6 +1,6 @@
 # Fases de construcción
 
-Cada fase termina con: build + lint sin errores, `npm audit`, commit, y resumen breve (archivos, pendientes).
+Cada fase termina con: build + lint sin errores, `npm audit --omit=dev`, commit, y resumen breve (archivos, pendientes).
 
 ## Fase 1 — Base, contenido e idiomas
 1. Estructura:
