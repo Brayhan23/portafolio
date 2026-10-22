@@ -10,7 +10,17 @@ function iniciales(titulo: string) {
 }
 
 // Imagen principal del proyecto o, sin imágenes, placeholder tipográfico con patrón de líneas.
-export function ProjectCover({ proyecto, lang }: { proyecto: Proyecto; lang: Lang }) {
+export function ProjectCover({
+  proyecto,
+  lang,
+  priority = false,
+  sizes = "(min-width: 768px) 560px, 100vw",
+}: {
+  proyecto: Proyecto;
+  lang: Lang;
+  priority?: boolean;
+  sizes?: string;
+}) {
   const patron = useId();
   const img = proyecto.imagenes[0];
   if (img) {
@@ -20,7 +30,8 @@ export function ProjectCover({ proyecto, lang }: { proyecto: Proyecto; lang: Lan
         alt={img.alt[lang]}
         width={img.ancho}
         height={img.alto}
-        sizes="(min-width: 768px) 560px, 100vw"
+        priority={priority}
+        sizes={sizes}
         className="aspect-[16/10] w-full border-b border-line object-cover"
       />
     );

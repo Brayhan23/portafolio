@@ -55,6 +55,21 @@ export const ui = {
       en: "Have a project or an opportunity in mind? Let's talk.",
     },
   },
+  galeria: {
+    ampliar: { es: "Ampliar imagen", en: "Enlarge image" },
+    cerrar: { es: "Cerrar", en: "Close" },
+    anterior: { es: "Imagen anterior", en: "Previous image" },
+    siguiente: { es: "Imagen siguiente", en: "Next image" },
+    visor: { es: "Galería de imágenes", en: "Image gallery" },
+  },
+  video: {
+    reproducir: { es: "Reproducir video", en: "Play video" },
+    titulo: { es: "Video del proyecto", en: "Project video" },
+    sinSoporte: {
+      es: "Tu navegador no puede reproducir este video.",
+      en: "Your browser cannot play this video.",
+    },
+  },
   idioma: { es: "Idioma", en: "Language" },
   navegacion: { es: "Principal", en: "Main" },
   tema: {

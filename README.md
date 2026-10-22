@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# Portafolio — Brayhan Escobar
 
-## Getting Started
-
-First, run the development server:
+Portafolio bilingüe (es/en) con Next.js (App Router), TypeScript y Tailwind CSS v4. Todo el contenido vive en `src/content/`; los componentes no contienen textos.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev     # desarrollo
+npm run build   # build de producción
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Agregar imágenes y video a un proyecto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Edita el proyecto en `src/content/proyectos.ts` (identificado por su `slug`). Sin imágenes se muestra un placeholder con las iniciales.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Imágenes
 
-## Learn More
+1. Crea la carpeta `public/proyectos/<slug>/` y copia allí las capturas.
+2. Nombres en minúsculas, con guiones y orden: `01-inicio.webp`, `02-ventas.webp`, …
+3. Tamaño recomendado: 1600 px de ancho (proporción 16:10 para la principal), formato WebP o JPG, menos de 300 KB cada una. Next.js genera las variantes responsivas.
+4. Registra cada imagen en `imagenes` (la **primera** es la principal y la portada de la tarjeta):
 
-To learn more about Next.js, take a look at the following resources:
+```ts
+imagenes: [
+  {
+    src: "/proyectos/app-milagros/01-inicio.webp",
+    alt: { es: "Pantalla de ventas con el carrito abierto", en: "Sales screen with the cart open" },
+    ancho: 1600, // ancho real en px
+    alto: 1000,  // alto real en px
+    leyenda: { es: "Venta con escáner de códigos", en: "Sale using the barcode scanner" }, // opcional
+  },
+],
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`alt` es obligatorio en ambos idiomas. Proyectos comerciales: solo capturas con datos ficticios.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Video
 
-## Deploy on Vercel
+- **mp4 local** (preferible ≤ 20 MB, H.264): guárdalo en `public/proyectos/<slug>/demo.mp4`, con un póster en `public/proyectos/<slug>/demo-poster.webp`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```ts
+video: { src: "/proyectos/app-milagros/demo.mp4", poster: "/proyectos/app-milagros/demo-poster.webp" },
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **YouTube**: usa solo el ID. Se carga con fachada (no se contacta a YouTube hasta pulsar reproducir) desde `youtube-nocookie.com`:
+
+```ts
+video: { youtubeId: "XXXXXXXXXXX" },
+```
+
+El video y la galería aparecen en la sección «Galería» del caso de estudio.
